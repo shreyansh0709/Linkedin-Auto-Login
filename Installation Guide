@@ -1,0 +1,5 @@
+1) Install Selenium using (pip install Selenium) on your command window
+2) Install Chrome web driver with your chrome version
+3) If possible install Chromium
+4) Execute the python script onto your IDE and run it
+5) It will open the web browser and login automatically to your profile

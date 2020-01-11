@@ -1,35 +1,29 @@
+from typing import List
+
+from selenium.webdriver.remote.webelement import WebElement
+from tools.selenium_tools import send_keys
+
 import parameters
 from time import sleep
+from parsel import Selector
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
+import csv
 
-driver = webdriver.Chrome('C:\Users\Lenovo\Desktop\chromedriver')
-driver.get('https://www.linkedin.com')
+writer = csv.writer(open(parameters.file_name, 'w'))
 
-username = driver.find_element_by_class_name('shreyansh.jha9@gmail.com')
-username.send_keys(parameters.linkedin_username)
-sleep(0.5)
+writer.writerow(['Name','Job Title','Company','College', 'Location','URL'])
 
-password = driver.find_element_by_class_name('Shreyansh@0709')
-password.send_keys(parameters.linkedin_password)
-sleep(0.5)
+driver = webdriver.Chrome('C:/Users/Lenovo/Desktop/chromedriver')
 
-sign_in_button = driver.find_element_by_xpath('//*[@type="submit"]')
-sign_in_button.click()
-sleep(0.5)
+driver.get('https://www.linkedin.com/login')
 
-driver.get('https:www.google.com')
-sleep(3)
+driver.find_element_by_xpath("//input[@id='username']").send_keys('shreyansh.jha9@gmail.com')
 
-search_query = driver.find_element_by_name('q')
-search_query.send_keys(parameters.search_query)
-sleep(0.5)
+sleep(2)
 
-search_query.send_keys(Keys.RETURN)
-sleep(3)
+driver.find_element_by_xpath("//input[@id='password']").send_keys('Sohini@0731')
 
-linkedin_urls = driver.find_elements_by_class_name('iUh30')
-linkedin_urls = [url.text for url in linkedin_urls]
-sleep(0.5)
+driver.find_element_by_xpath("//button[@type='submit']").click()
 
-driver.quit()
+sleep(5)

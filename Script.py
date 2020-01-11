@@ -18,11 +18,11 @@ driver = webdriver.Chrome('C:/Users/Lenovo/Desktop/chromedriver')
 
 driver.get('https://www.linkedin.com/login')
 
-driver.find_element_by_xpath("//input[@id='username']").send_keys('shreyansh.jha9@gmail.com')
+driver.find_element_by_xpath("//input[@id='username']").send_keys('Add your LinkedIn email adress')
 
 sleep(2)
 
-driver.find_element_by_xpath("//input[@id='password']").send_keys('Sohini@0731')
+driver.find_element_by_xpath("//input[@id='password']").send_keys('Add your LinkedIn password')
 
 driver.find_element_by_xpath("//button[@type='submit']").click()
 
